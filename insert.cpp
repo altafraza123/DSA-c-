@@ -1,27 +1,28 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
+int main(){
+    int n;
+    cout<<"Enter the number of elements";
+    cin>>n;
 
-int main() {
-    int arr[] = {5, 3, 4, 1, 2};
-    int n = 5;
+    int arr[n];
+    cout<<"enter the array elements";
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
 
-    for (int i = 1; i < n; i++) {
-        int key = arr[i];
-        int j = i - 1;
+    }
+    for(int i=1; i<n; i++){
+        int prev=i-1;
+        int current=arr[i];
 
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j--;
+        while(prev>=0 && arr[prev]>current){
+            arr[prev+1]=arr[prev];
+            prev--;
         }
-
-        arr[j + 1] = key;
+        arr[prev+1]=current;
     }
-
-    cout << "Sorted array: ";
-
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<" ";
     }
-
     return 0;
 }
